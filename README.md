@@ -6,6 +6,8 @@ This example is based on TaskWarrior task manager.
 ## Preview
 ![](https://i.imgur.com/B9JxJND.png)
 
+![](https://i.imgur.com/WDBcZYC.png)
+
 ## How to run
 * Install task manager `apt-get install taskwarrior`
 * Install NodeJS dependencies  `cd ./src/backend && npm install`
