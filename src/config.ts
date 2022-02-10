@@ -8,8 +8,6 @@ const styles = `
   flex-direction: column;
   position: relative;
   padding: 25px;
-  background-image: url();
-  background-repeat: repeat;
   overflow: hidden;
   color: #88FE87;
   text-shadow: 0 0 8px rgba(136, 254, 135, 0.95);
@@ -17,7 +15,9 @@ const styles = `
   box-sizing: border-box;
   font-family: monospace;
   font-size: 16px;
-  background-color: black;
+  background-image: linear-gradient(0deg, #000000 33.33%, #21661e 33.33%, #21661e 50%, #000000 50%, #000000 83.33%, #21661e 83.33%, #21661e 100%);
+  background-size: 6px 6px;
+  font-weight: bold;
 }
 .container:after {
   content: '';

@@ -1,6 +1,10 @@
 import { createConfig, Config } from '@/config';
 import { emit } from '@/core/events';
 
+interface Terminalout {
+  addCommand: (text: string) => void;
+}
+
 function injectStyle(styleString) {
   const style = document.createElement('style');
   style.textContent = styleString;
@@ -15,7 +19,7 @@ function createUserInterface() {
     <div class="stdout"></div>
     <div class="stdin">
         <span>></span>
-        <span class="input" contenteditable="true"></span>
+        <span class="input" contenteditable="true" spellcheck="false"></span>
     </div>
   `;
 
@@ -82,7 +86,7 @@ function createUserInterface() {
   };
 }
 
-export function createTerminalout(target: string | HTMLElement, userConfig?: Config): void {
+export function createTerminalout(target: string | HTMLElement, userConfig?: Config): Terminalout {
   let element: HTMLElement = null;
 
   if (!target) {
@@ -98,9 +102,13 @@ export function createTerminalout(target: string | HTMLElement, userConfig?: Con
   }
 
   const config = createConfig(userConfig);
-  const { container } = createUserInterface();
+  const { container, addCommand } = createUserInterface();
 
   injectStyle(config.styles);
 
   element.appendChild(container);
+
+  return {
+    addCommand,
+  }
 }
